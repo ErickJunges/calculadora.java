@@ -4,8 +4,7 @@
 <p align="center">
   <a href="#objetivo">Objetivo</a> •
   <a href="#tecnologias">Tecnologias</a> •
-  <a href="#pre-requesitos">Pré-requesitos</a> • 
-  <a href="#licenc-a">Licença</a> • 
+  <a href="#pre-requesitos">Pré-requesitos</a> •  
   <a href="#autor">Autor</a> •
 </p>
 
