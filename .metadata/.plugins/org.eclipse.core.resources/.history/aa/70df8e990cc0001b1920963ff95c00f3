@@ -23,21 +23,29 @@ public class Program {
 		System.out.print("Cliente: ");
 		sc.nextLine();
 		String clientName = sc.nextLine();
-		System.out.print("Data de início: ");
+		System.out.print("Data de início (DD/MM/YYYY): ");
 		Date initDate = sdf.parse(sc.next());
-		System.out.print("Data de término: ");
+		System.out.print("Data de término (DD/MM/YYYY): ");
 		Date finalDate = sdf.parse(sc.next());
 		System.out.print("Investimento por dia: ");
-		double investment = sc.nextDouble();
+		double investimento = sc.nextDouble();
 		
-		long diff = finalDate.getTime() - initDate.getTime();
+		long diff;
+		
+		if (finalDate.getTime() > initDate.getTime()) {
+			diff = finalDate.getTime() - initDate.getTime();
+		}
+		else {
+			diff = 0 *( finalDate.getTime() - initDate.getTime() );
+		}
+		
 		int duracao = (int) TimeUnit.DAYS.convert(diff, TimeUnit.MILLISECONDS);
 
 		
 		int clique = 0;
 		int compartilhamento = 0;
 		
-		int visualizacao = (int) (30 * investment);
+		int visualizacao = (int) (30 * investimento);
 		
 		clique = visualizacao / ( 100 / 12 ) ;
 		
@@ -68,11 +76,14 @@ public class Program {
 		visualizacao = visualizacao * duracao;
 		clique = clique * duracao;
 		compartilhamento = compartilhamento * duracao;
-		investment = investment * duracao;
+		investimento = investimento * duracao;
 		
+		System.out.println();
 		System.out.println("----------------");
 		System.out.println();
-		System.out.println("Valor total investido: $" + String.format("%.2f", investment)); 
+		System.out.println("Nome do anúncio: " + adsName);
+		System.out.println("Cliente: " + clientName);
+		System.out.println("Valor total investido: $" + String.format("%.2f", investimento)); 
 		System.out.println("Quantidade máxima de visualizações: " + visualizacao);
 		System.out.println("Quantidade máxima de cliques: "+ clique);
 		System.out.println("Quantidade máxima de compartilhamentos: " + compartilhamento);
